@@ -1,17 +1,18 @@
 import React from 'react';
 import { CartState } from '../context/Context';
-
+import Filters from './Filters';
+import SingleProduct from './SingleProduct';
+import './style.css';
 const Home = () => {
     const { state: { products } } = CartState();
-    console.log(products);
 
     return (
         <div className='home'>
-            {/* <Filter></Filter> */}
+            <Filters />
             <div className='productContainer'>
                 {
-                    products.map((prod, i) => (
-                        <span key={i}>{prod.name} <br /> </span>
+                    products.map((product, i) => (
+                        <SingleProduct key={i} product={product} />
                     ))
                 }
             </div>
