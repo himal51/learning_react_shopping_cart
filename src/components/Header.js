@@ -16,6 +16,7 @@ const Header = () => {
     const {
         state: { cart },
         dispatch,
+        productDispatch
     } = CartState();
     return (
         <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
@@ -23,19 +24,22 @@ const Header = () => {
                 <Navbar.Brand>
                     <Link to="/">Shopping Cart</Link>
                 </Navbar.Brand>
-                <Navbar.Text>
+                <Navbar.Text className="search">
                     <FormControl
                         style={{ width: 500 }}
                         placeholder="Search A Product"
                         className="m-auto"
+                        onChange={(e) => productDispatch({ type: 'FILTER_BY_SEARCH', payload: e.target.value })}
                     />
                 </Navbar.Text>
                 <Nav>
                     <Dropdown>
-                        <Dropdown.Toggle variant="success">
+                        <Dropdown.Toggle variant="success" >
                             <FaShoppingCart color="white" fontSize="25px" />
                             <Badge> {cart.length} </Badge>
                         </Dropdown.Toggle>
+
+
                         <Dropdown.Menu style={{ minWidth: 370, left: -280 }}>
                             {cart.length > 0 ? (
                                 <>
