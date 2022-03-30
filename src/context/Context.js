@@ -10,7 +10,7 @@ const Context = ({ children }) => {
 		name: faker.commerce.productName(),
 		price: faker.commerce.price(),
 		image: faker.image.avatar(),
-		inStock: faker.random.arrayElement([0, 3, 5, 6, 7]),
+		inStock: Math.floor(Math.random() * 5),
 		fastDelivery: Math.random() < 0.5,
 		ratings: Math.floor(Math.random() * 5) + 1,
 	}));

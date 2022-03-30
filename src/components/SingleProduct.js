@@ -48,9 +48,11 @@ const SingleProduct = ({ product }) => {
 									payload: product,
 								});
 							}}
-							disabled={product.inStock}
+							disabled={product.inStock === 0}
 						>
-							{product.inStock ? "Out of Stock" : "Add to Cart"}
+							{product.inStock === 0
+								? "Out of Stock"
+								: "Add to Cart"}
 						</Button>
 					)}
 				</Card.Body>
